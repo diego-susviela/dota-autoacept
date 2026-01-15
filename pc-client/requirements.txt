@@ -1,0 +1,10 @@
+fastapi==0.115.0
+uvicorn==0.30.6
+pydantic==2.9.2
+mss==9.0.1
+pillow==10.4.0
+pyautogui==0.9.54
+pytesseract==0.3.10
+qrcode==7.4.2
+pystray==0.19.5
+requests==2.32.3

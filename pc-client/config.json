@@ -1,0 +1,39 @@
+{
+  "bind_host": "127.0.0.1",
+  "bind_port": 8765,
+  "auth_token": "change-me",
+  "auto_accept_enabled": true,
+  "accept_delay_min_s": 0.2,
+  "accept_delay_max_s": 0.5,
+  "click_cooldown_s": 5.0,
+  "poll_interval_s": 0.5,
+  "enable_ocr": false,
+  "ocr_text": "ACCEPT",
+  "accept_region": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "queue_region": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "accept_color": {
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "tolerance": 25
+  },
+  "log_path": "logs/pc-client.log",
+  "log_level": "INFO",
+  "stop_after_match_found_s": 8.0,
+  "allowed_subnets": [
+    "127.0.0.1/32",
+    "10.0.0.0/8",
+    "172.16.0.0/12",
+    "192.168.0.0/16"
+  ]
+}

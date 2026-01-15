@@ -1,0 +1,107 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/ipField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="PC IP (e.g., 192.168.1.10)"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/portField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Port"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/ipField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/tokenField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Auth Token"
+        app:layout_constraintTop_toBottomOf="@id/portField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/qrPayloadField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Paste QR payload JSON"
+        app:layout_constraintTop_toBottomOf="@id/tokenField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/loadQrButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Load from QR payload"
+        app:layout_constraintTop_toBottomOf="@id/qrPayloadField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <Switch
+        android:id="@+id/autoAcceptSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Auto-accept enabled"
+        app:layout_constraintTop_toBottomOf="@id/loadQrButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Connect"
+        app:layout_constraintTop_toBottomOf="@id/autoAcceptSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/startQueueButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Start Queue"
+        app:layout_constraintTop_toBottomOf="@id/connectButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/stopQueueButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Stop Queue"
+        app:layout_constraintTop_toBottomOf="@id/startQueueButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/statusView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Status: disconnected"
+        app:layout_constraintTop_toBottomOf="@id/stopQueueButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
