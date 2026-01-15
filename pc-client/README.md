@@ -1,13 +1,16 @@
 # PC Client (Windows)
 
-This folder contains the initial **Python/FastAPI** skeleton for the Dota 2 queue notifier and auto‑accept server. It does **not** read game memory; the detector is a placeholder awaiting pixel/OCR/audio logic.
+Python/FastAPI server that detects Dota 2 queue state via screen capture and can auto‑accept matches. It uses **visible cues only** (pixel sampling + optional OCR).
 
-## What’s Included
+## Features
 
-- **FastAPI server** with token-authenticated endpoints.
-- **WebSocket** broadcast channel (`/ws`) for real‑time updates.
-- **Stub detection loop** ready for pixel/OCR implementation.
-- **Input automation stubs** (replace with `pyautogui`/AutoIT).
+- FastAPI server with status, config, queue control, and pairing QR endpoints.
+- WebSocket broadcast updates at `/ws?token=...`.
+- Screen capture detection via `mss` + `Pillow` with optional OCR (`pytesseract`).
+- Input automation via `pyautogui` with jitter and cooldowns.
+- Config validation + persistence with safety timeout.
+- LAN‑only subnet filtering + token authentication.
+- Calibration tool and tray toggle helper.
 
 ## Quick Start
 
@@ -22,17 +25,35 @@ python -m src.main
 ## Endpoints
 
 - `GET /status`
+- `GET /config`
+- `POST /config`
+- `GET /pairing-qr`
 - `POST /toggle-auto-accept`
 - `POST /start-queue`
 - `POST /stop-queue`
-- `POST /simulate-match-found` (temporary helper)
-- `WS /ws`
+- `WS /ws?token=...`
 
-All requests require `X-Auth-Token` with the value configured in `config.json`.
+All requests require `X-Auth-Token` (or `?token=` for WebSocket) matching the token in `config.json`.
 
-## Next Steps
+## Calibration
 
-- Implement detection using **screen capture + pixel/OCR**.
-- Replace `InputController` stubs with real automation.
-- Add calibration UI for capture regions.
+```bash
+python -m src.calibrate
+```
 
+Follow prompts to capture the Accept button and queue button regions.
+
+## Tray Helper (Windows)
+
+```bash
+python -m src.tray_helper
+```
+
+Provides a tray icon to quickly toggle auto‑accept.
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
