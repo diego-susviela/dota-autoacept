@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Dota Auto-Accept</string>
+    <string name="notification_channel">Queue Updates</string>
+</resources>

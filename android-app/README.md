@@ -1,14 +1,21 @@
 # Android App
 
-This directory will contain the Android client. Planned features:
+This module contains the Android client for the Dota queue notifier.
 
-- Connect to the PC server over HTTP/WebSocket.
-- Toggle auto‑accept and (optionally) queue controls.
-- Display notifications for queue state changes.
+## Features
 
-## Next Steps
+- IP/port/token fields with QR payload paste.
+- Connect button launches a foreground service to keep the WebSocket alive.
+- Queue controls (start/stop) and auto-accept toggle via HTTP.
+- Encrypted preferences using `EncryptedSharedPreferences`.
 
-- Scaffold a Kotlin Android Studio project.
-- Implement network layer (OkHttp/WebSocket).
-- Add encrypted storage for server token/IP.
+## Setup
 
+1. Open `android-app/` in Android Studio.
+2. Sync Gradle and run on a device (requires Android 8.0+ for the foreground service).
+3. Paste the QR payload from the PC client or manually enter host/port/token.
+
+## Notes
+
+- The PC client must be running on the same network.
+- WebSocket updates are shown through a persistent notification.
